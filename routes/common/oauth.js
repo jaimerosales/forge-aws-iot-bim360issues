@@ -41,7 +41,8 @@ class OAuth {
 
         return {
             access_token: this._session.public_token,
-            expires_in: this._expiresIn()
+            expires_in: this._expiresIn(),
+            refresh_token: this._session.refresh_token
         };
     }
 
@@ -52,7 +53,8 @@ class OAuth {
 
         return {
             access_token: this._session.internal_token,
-            expires_in: this._expiresIn()
+            expires_in: this._expiresIn(),
+            refresh_token: this._session.refresh_token
         };
     }
 

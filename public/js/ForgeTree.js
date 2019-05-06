@@ -23,9 +23,9 @@ $(document).ready(function () {
     success: function (res) {
       // yes, it is signed in...
       $('#signOut').show();
-      $('#refreshHubs').show();
-      $('#userHubs').hide();
-
+      // $('#refreshHubs').show();
+      // $('#userHubs').hide();
+      console.log('Refresh Token Value ',res.refresh_token);
       // prepare sign out
       $('#signOut').click(function () {
         $('#hiddenFrame').on('load', function (event) {
@@ -58,10 +58,16 @@ function showUser() {
   });
 }
 
+function showButtonSetup() {
+  
+  
+}
+
 function getForgeToken(callback) {
   jQuery.ajax({
     url: '/api/forge/oauth/token',
     success: function (res) {
+      console.log('Refresh Token Value ',res.refresh_token);
       callback(res.access_token, res.expires_in)
     }
   });
